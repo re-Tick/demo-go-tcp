@@ -1,0 +1,43 @@
+version: api.keploy.io/v1beta2
+kind: Http
+name: test-1
+spec:
+    metadata: {}
+    req:
+        method: POST
+        proto_major: 1
+        proto_minor: 1
+        url: http://localhost:8080/helloworld
+        header:
+            Accept: '*/*'
+            Host: localhost:8080
+            Traceparent: 00-10000000000000000000000000000001-8a22de29dc3b265f-01
+            User-Agent: curl/7.81.0
+        body: ""
+        body_type: ""
+        timestamp: 2023-11-20T18:56:12.268363772Z
+    resp:
+        status_code: 200
+        header:
+            Connection: keep-alive
+            Content-Length: "13"
+            Date: Mon, 20 Nov 2023 18:44:58 GMT
+            Keep-Alive: timeout=5
+        body: hello worlddd
+        body_type: ""
+        status_message: ""
+        proto_major: 0
+        proto_minor: 0
+        timestamp: 2023-11-20T18:56:14.553089437Z
+    objects: []
+    assertions:
+        noise:
+            header.Date: []
+    created: 1700506574
+curl: |
+    curl --request POST \
+      --url http://localhost:8080/helloworld \
+      --header 'User-Agent: curl/7.81.0' \
+      --header 'Accept: */*' \
+      --header 'Traceparent: 00-10000000000000000000000000000001-8a22de29dc3b265f-01' \
+      --header 'Host: localhost:8080' \
